@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+<title>SA-RAG:Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis</title>
+<meta property="og:title" content="SA-RAG:Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis">
+<!-- End Jekyll SEO tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1023.0" data-gr-ext-installed="">
+    <section class="page-header">
+    <!-- <h1 class="project-name"></h1>
+    <h2 class="project-tagline"></h2> -->
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id=""><center> SA-RAG: Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis</center></h1>
+      <!-- <h1 id=""><center> Evaluation </center></h1> -->
+      
+
+<!-- <center> <b>| Anonymous | </b> </center> -->
+<center> Anonymous submission to Interspeech 2025 </center>
+
+
+
+<h2 id="abstract">Abstract</h2>
+<p>Zero-shot text-to-speech (TTS) models can clone an unseen speaker by extracting information from reference speech. Given a situation with multiple reference speeches, Retrieval Augmented Generation (RAG) shows potential in enhancing synthesis quality. The existing method faces two key limitations: semantic-biased retrieval tends to introduce style mismatch and the deterministic mapping between text and speech fails to fully capture the unique style of speaker. To solve these, we propose a Speaker-Aware Retrieval Augmented  TTS (SA-RAS) model. It decouples the style and timbre in reference speech to establish a text to style retrieval mechanism. Additionally, it incorporates speaker information into the retrieval model to optimize the correlation between text and style. Experiments prove that SA-RAS boosts the style expressiveness of synthesized speech. </p>
+
+
+<a name="1"><h2>Model Architecture</h2></a>
+<div>
+  <br />
+  <p style="text-align: center">
+    <img src="pic/Comparison.png" width="800" height="400"/>
+  </p>
+  <p>
+  <figcaption style="text-align:center;">
+    </font>
+    <font size=3>
+      Figure 1: Comparison Between Previous and Proposed RAG-enhanced zero-shot TTS Frameworks.
+    </font>
+  </figcaption><br><br>
+  </p>
+
+  <br />
+  <p style="text-align: center">
+    <img src="pic/Split-TTS.png" width="800" height="400" />
+  </p>
+  <p>
+  <figcaption style="text-align:center;">
+    </font>
+    <font size=3>
+      Figure 2: The overall architecture for Split-TTS. (A)Training framework of the Split-TTS. (B)Feature extraction. (C)The architecture of Text to NTF model.
+    </font>
+  </figcaption><br><br>
+  </p>
+
+  <br />
+  <p style="text-align: center">
+    <img src="pic/Zero-shot Clap.png" width="800" height="400"/>
+  </p>
+  <p>
+  <figcaption style="text-align:center;">
+    </font>
+    <font size=3>
+      Figure 3: Architecture of Zero-shot Clap.
+    </font>
+  </figcaption><br><br>
+  </p>
+
+  <br />
+  <p style="text-align: center">
+    <img src="pic/inference.png" width="800" height="400"/>
+  </p>
+  <p>
+  <figcaption style="text-align:center;">
+    </font>
+    <font size=3>
+      Figure 3: The inference stage of SA-RAS.
+    </font>
+  </figcaption><br><br>
+  </p>
+
+  
+</div>
+
+
+<a name="2"><h2>Evaluation</h2></a>
+<p>
+  Our work focuses on enhancing the style expressiveness of zero-shot TTS through retrieval.   <br>
+  Thus, we conduct comparative experiments of different retrieval methods on Split-TTS, including  <br>
+  (1) Self: Using speech paired with the target text. <br>
+  (2) Random: Randomly selected speech as reference. <br>
+  (3) CA-Clap: Using CA-Clap as retrieval method. <br>
+  (4) w/o speaker: Using ablation model as retrieval method. <br>
+  (4) Zero-shot Clap: Using our proposed method <br>
+</p>
+
+
+<h3>Sample 1</h3>
+<p>Text: There was a moment of silence.</b></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Groundtruth</strong></th>
+      <th style="text-align: center"><strong>Self</strong></th>
+      <th style="text-align: center"><strong>Random</strong></th>
+      <th style="text-align: center"><strong>CA-Clap</strong></th>
+      <th style="text-align: center"><strong>w/o speaker</strong></th>
+      <th style="text-align: center"><strong>Proposed</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/24.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/24_ori.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/24_random_72.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/24_h.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/24_gst.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/24_gz.mp3" controls="" preload=""></audio></td>
+  </tbody>
+</table>
+<br>
+<br>
+
+
+<h3>Sample 2</h3>
+<p>Text: When I think of them I am so agitated!" </b></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>groundtruth</strong></th>
+      <th style="text-align: center"><strong>Self</strong></th>
+      <th style="text-align: center"><strong>Random</strong></th>
+      <th style="text-align: center"><strong>CA-Clap</strong></th>
+      <th style="text-align: center"><strong>w/o-speaker</strong></th>
+      <th style="text-align: center"><strong>Proposed</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/92.mp3" controls="" preload="" width="1000" height="30"></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/92_ori.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/92_random_76.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/92_h.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/92_gst.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/92_gz.mp3" controls="" preload=""></audio></td>
+  </tbody>
+</table>
+<br>
+<br>
+
+
+
+<h3>Sample 3</h3>
+<p>Text: "What on EARTH are you so grave about?" she suddenly demanded, fixing her agreeable eyes upon Winterbourne's. </b></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>groundtruth</strong></th>
+      <th style="text-align: center"><strong>Self</strong></th>
+      <th style="text-align: center"><strong>Random</strong></th>
+      <th style="text-align: center"><strong>CA-Clap</strong></th>
+      <th style="text-align: center"><strong>w/o-speaker</strong></th>
+      <th style="text-align: center"><strong>Proposed</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/156.mp3" controls="" preload="" width="1000" height="30"></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/156_ori.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/156_random_190.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/156_h.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/156_gst.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/156_gz.mp3" controls="" preload=""></audio></td>
+  </tbody>
+</table>
+<br>
+<br>
+
+<h3>Sample 4</h3>
+<p>Text: The fact that the President was speaking was sufficient, no matter what he said. </b></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>groundtruth</strong></th>
+      <th style="text-align: center"><strong>Self</strong></th>
+      <th style="text-align: center"><strong>Random</strong></th>
+      <th style="text-align: center"><strong>CA-Clap</strong></th>
+      <th style="text-align: center"><strong>w/o-speaker</strong></th>
+      <th style="text-align: center"><strong>Proposed</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/47.mp3" controls="" preload="" width="1000" height="30"></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/47_ori.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/47_random_55.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/47_h.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/47_gst.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/8770/47_gz.mp3" controls="" preload=""></audio></td>
+  </tbody>
+</table>
+<br>
+<br>
+
+
+<h3>Sample 5</h3>
+<p>Text: I told her she could wear it. </b></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>groundtruth</strong></th>
+      <th style="text-align: center"><strong>Self</strong></th>
+      <th style="text-align: center"><strong>Random</strong></th>
+      <th style="text-align: center"><strong>CA-Clap</strong></th>
+      <th style="text-align: center"><strong>w/o-speaker</strong></th>
+      <th style="text-align: center"><strong>Proposed</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/6.wav" controls="" preload="" width="1000" height="30"></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/6_ori.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/6_random_135.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/6_h.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/6_gst.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/1780/6_gz.wav" controls="" preload=""></audio></td>
+  </tbody>
+</table>
+<br>
+<br>
+
+<h3>Sample 6</h3>
+<p>Text: Your brother is the most charming of men. </b></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>groundtruth</strong></th>
+      <th style="text-align: center"><strong>Self</strong></th>
+      <th style="text-align: center"><strong>Random</strong></th>
+      <th style="text-align: center"><strong>CA-Clap</strong></th>
+      <th style="text-align: center"><strong>w/o-speaker</strong></th>
+      <th style="text-align: center"><strong>Proposed</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/101.mp3" controls="" preload="" width="1000" height="30"></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/101_ori.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/101_random_51.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/101_h.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/101_gst.mp3" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="samplemp3/mp3/14/101_gz.mp3" controls="" preload=""></audio></td>
+  </tbody>
+</table>
+<br>
+<br>
+
+
+      <footer class="site-footer">
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com/">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
