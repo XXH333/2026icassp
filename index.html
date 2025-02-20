@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    
-<title>SA-RAG:Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis</title>
-<meta property="og:title" content="SA-RAG:Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis">
+<title>SA-RAS:Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis</title>
+<meta property="og:title" content="SA-RAS:Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis">
 <!-- End Jekyll SEO tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
@@ -17,7 +17,7 @@
     </section>
 
     <section class="main-content">
-      <h1 id=""><center> SA-RAG: Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis</center></h1>
+      <h1 id=""><center> SA-RAS: Speaker-Aware Style Retrieval Augmented Generation for Expressive Zero-shot Text-to-Speech Synthesis</center></h1>
       <!-- <h1 id=""><center> Evaluation </center></h1> -->
       
 
@@ -27,7 +27,7 @@
 
 
 <h2 id="abstract">Abstract</h2>
-<p>Zero-shot text-to-speech (TTS) models can clone an unseen speaker by extracting information from reference speech. Given a situation with multiple reference speeches, Retrieval Augmented Generation (RAG) shows potential in enhancing synthesis quality. The existing method faces two key limitations: semantic-biased retrieval tends to introduce style mismatch and the deterministic mapping between text and speech fails to fully capture the unique style of speaker. To solve these, we propose a Speaker-Aware Retrieval Augmented  TTS (SA-RAS) model. It decouples the style and timbre in reference speech to establish a text to style retrieval mechanism. Additionally, it incorporates speaker information into the retrieval model to optimize the correlation between text and style. Experiments prove that SA-RAS boosts the style expressiveness of synthesized speech. </p>
+<p>Zero-shot text-to-speech (TTS) models can clone an unseen speaker by reference speech. Given a situation with multiple reference speeches, Retrieval Augmented Generation (RAG) shows potential in enhancing synthesis quality. The existing method faces two key limitations: semantic-biased retrieval tends to introduce style mismatch, and the deterministic mapping between text and speech fails to fully capture the unique style of speaker. To solve these, we propose a Speaker-Aware Retrieval Augmented  TTS (SA-RAS) model. It consists of a two-stage TTS model, Split-TTS and the Zero-shot Clap. The former embeds style and timbre separately to obtain a style space for retrieval. The latter optimizes the correlation between text and style by incorporating speaker information into the retrieval model. Experiments prove that SA-RAS boosts the style expressiveness of synthesized speech. </p>
 
 
 <a name="1"><h2>Model Architecture</h2></a>
