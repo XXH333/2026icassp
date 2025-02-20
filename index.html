@@ -27,64 +27,49 @@
 
 
 <h2 id="abstract">Abstract</h2>
-<p>Zero-shot text-to-speech (TTS) models can clone an unseen speaker by reference speech. Given a situation with multiple reference speeches, Retrieval Augmented Generation (RAG) shows potential in enhancing synthesis quality. The existing method faces two key limitations: semantic-biased retrieval tends to introduce style mismatch, and the deterministic mapping between text and speech fails to fully capture the unique style of speaker. To solve these, we propose a Speaker-Aware Retrieval Augmented  TTS (SA-RAS) model. It consists of a two-stage TTS model, Split-TTS and the Zero-shot Clap. The former embeds style and timbre separately to obtain a style space for retrieval. The latter optimizes the correlation between text and style by incorporating speaker information into the retrieval model. Experiments prove that SA-RAS boosts the style expressiveness of synthesized speech.  </p>
+<p>Zero-shot text-to-speech (TTS) models can clone an unseen speaker by reference speech. Given a situation with multiple reference speeches, Retrieval Augmented Generation (RAG) shows potential in enhancing synthesis quality. The existing method faces two key limitations: semantic-biased retrieval tends to introduce style mismatch, and the deterministic mapping between text and speech fails to fully capture the unique style of the speaker. To solve these, we propose a Speaker-Aware Retrieval Augmented  TTS (SA-RAS) model. It consists of a two-stage TTS model, Split-TTS and the Zero-shot CLAP. The former embeds style and timbre separately to obtain a style space for retrieval. The latter optimizes the correlation between text and style by incorporating speaker information into the retrieval model. Experiments prove that SA-RAS boosts the style expressiveness of synthesized speech. </p>
 
 
 <a name="1"><h2>Model Architecture</h2></a>
 <div>
   <br />
   <p style="text-align: center">
-    <img src="pic/Comparison.png" width="800" height="400"/>
+    <img src="picture/Comparison.png" width="800" height="400"/>
   </p>
   <p>
   <figcaption style="text-align:center;">
     </font>
     <font size=3>
-      Figure 1: Comparison Between Previous and Proposed RAG-enhanced zero-shot TTS Frameworks.
+      Figure 1: Comparison between the previous and the proposed RAG-enhanced zero-shot TTS frameworks.
     </font>
   </figcaption><br><br>
   </p>
 
   <br />
   <p style="text-align: center">
-    <img src="pic/Split-TTS.png" width="800" height="400" />
+    <img src="picture/split-tts.png" width="800" height="400" />
   </p>
   <p>
   <figcaption style="text-align:center;">
     </font>
     <font size=3>
-      Figure 2: The overall architecture for Split-TTS. (A)Training framework of the Split-TTS. (B)Feature extraction. (C)The architecture of Text to NTF model.
+      Figure 2: An overview of our proposed Split-TTS and the features extraction process.
     </font>
   </figcaption><br><br>
   </p>
 
   <br />
   <p style="text-align: center">
-    <img src="pic/Zero-shot Clap.png" width="800" height="400"/>
+    <img src="picture/zeroshotclap.png" width="800" height="400"/>
   </p>
   <p>
   <figcaption style="text-align:center;">
     </font>
     <font size=3>
-      Figure 3: Architecture of Zero-shot Clap.
+      Figure 3: An overview of our proposed Zero-shot Clap and the application of the SA-RAS.
     </font>
   </figcaption><br><br>
   </p>
-
-  <br />
-  <p style="text-align: center">
-    <img src="pic/inference.png" width="800" height="400"/>
-  </p>
-  <p>
-  <figcaption style="text-align:center;">
-    </font>
-    <font size=3>
-      Figure 3: The inference stage of SA-RAS.
-    </font>
-  </figcaption><br><br>
-  </p>
-
-  
 </div>
 
 
